@@ -12,11 +12,10 @@ import shutil
 import time
 import datetime
 from gong_neng.zaxiang import *
+from lib import func_1
 
-d=datetime.datetime.now()
+d = datetime.datetime.now()
 d1 = d.weekday()
-
-
 
 now_time = time.strftime('%m-%d %X')
 
@@ -41,23 +40,21 @@ now_time = time.strftime('%m-%d %X')
         1:(13点47分) 打算添加淘宝的搜索和京东的搜索+知乎的搜索
     2020年12月10日
         1:(13点16分) 打算添加快捷打开阿里镜像
+    2020年12月17日
+        1:(08点51分) 精简化
 '''
 
-# sign = '''
-# # 此程序由‎2019‎年‎7‎月‎10‎日，‏‎18:40:05   
-# Pscly开发------目前版本号为1.2.0版本
-# '''
-# print(sign) # 打印告示()
 
 PATH = os.path.abspath(__file__)
 
 print('-------------------------------------------------')
 print(PATH)
-print(f'    当前时间     {now_time}       星期{d1+1}')
+print(f'    当前时间     {now_time}       星期{d1 + 1}')
 print('-------------------------------------------------')
 
+
 def baidu(url1=''):
-    if url1 == '':             # 判断有没有传入搜索的东西
+    if url1 == '':  # 判断有没有传入搜索的东西
         while 1:
             url1 = input('输入问题(1)>>:').strip()
             if url1 == '':
@@ -66,19 +63,23 @@ def baidu(url1=''):
                 return
     web.open('https://www.baidu.com/s?wd={}'.format(url1))
 
+
 def yixia(url1=''):
     '''1
     :param url1: 这个是需要搜索的东西
     '''
-    if url1 == '':             # 判断有没有传入搜索的东西
+    if url1 == '':  # 判断有没有传入搜索的东西
         while 1:
             url1 = input('输入问题(1)>>:').strip()
             if url1 == '':
                 return
             elif url1.lower() == 'q':
                 return
-    web.open('https://www.google.com/search?ei=DJQlXcWbJJvW-QaYnr2YBA&q={0}&oq={0}&gs_l=psy-ab.3...0.0..1577...0.0..0.0.0.......0......gws-wiz.1DqK64vuO1U'.format(url1))
+    web.open(
+        'https://www.google.com/search?ei=DJQlXcWbJJvW-QaYnr2YBA&q={0}&oq={0}&gs_l=psy-ab.3...0.0..1577...0.0..0.0.0.......0......gws-wiz.1DqK64vuO1U'.format(
+            url1))
     baidu(url1)
+
 
 def zhidao(url1=''):
     if url1 == '':
@@ -90,6 +91,7 @@ def zhidao(url1=''):
     web.open('https://zh.wikipedia.org/wiki/{}'.format(url1))
     web.open('https://baike.baidu.com/item/{}'.format(url1))
 
+
 def hebin(url1=''):
     if url1 == '':
         url1 = input('输入查询>>:')
@@ -99,7 +101,9 @@ def hebin(url1=''):
             return
     web.open('https://zh.wikipedia.org/wiki/{}'.format(url1))
     web.open('https://baike.baidu.com/item/{}'.format(url1))
-    web.open('https://www.google.com/search?ei=DJQlXcWbJJvW-QaYnr2YBA&q={0}&oq={0}&gs_l=psy-ab.3...0.0..1577...0.0..0.0.0.......0......gws-wiz.1DqK64vuO1U'.format(url1))
+    web.open(
+        'https://www.google.com/search?ei=DJQlXcWbJJvW-QaYnr2YBA&q={0}&oq={0}&gs_l=psy-ab.3...0.0..1577...0.0..0.0.0.......0......gws-wiz.1DqK64vuO1U'.format(
+            url1))
     web.open('https://www.baidu.com/s?wd={}'.format(url1))
 
 
@@ -112,6 +116,7 @@ def zhihu(url1=''):
             return
     web.open(f'https://www.zhihu.com/search?type=content&q={url1}')
 
+
 def shopping(url1=''):
     if url1 == '':
         url1 = input('输入查询>>:')
@@ -119,22 +124,16 @@ def shopping(url1=''):
             return
         elif url1.upper() == 'q':
             return
-    web.open(f'https://s.taobao.com/search?q={url1}&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20200805&ie=utf8')
+    web.open(
+        f'https://s.taobao.com/search?q={url1}&imgfile=&js=1&stats_click=search_radio_all%3A1&initiative_id=staobaoz_20200805&ie=utf8')
     web.open(f'https://search.jd.com/Search?keyword={url1}&enc=utf-8&wq={url1}&pvid=447c3e9e63904d03a8c281c22da7e78e')
 
-
-
-
-def copy1():
-    file1 = input('请输入是第**天():')
-    shutil.copytree(r'F:\1SH10\day{0}\代码\day{0}'.format(file1),
-                    r'F:\1py\.S10_sh\001day\day{0}\day{0}'.format(file1))  # 可以用的
 
 def zhengze(*args):
     web.open('http://tool.chinaz.com/regex/')
 
-def ping(*ip_addr):
 
+def ping(*ip_addr):
     if not ip_addr:
         ip_addr = ['pscly.cn']
     os.system('ping {}'.format(ip_addr[0]))
@@ -142,30 +141,29 @@ def ping(*ip_addr):
 
 def dayin(*args):
     for i in dakai:
-        print(i,' \t'.expandtabs(6),dakai[i][1])
+        print(i, ' \t'.expandtabs(6), dakai[i][1])
 
-def mstsc(*ip_addr):
 
-    if not ip_addr:
-        os.system('mstsc')
-    os.system('mstsc /v {}'.format(ip_addr[0]))
+def mstsc(ipaddr='', *args):
+    os.system('mstsc -v %s' % ipaddr)
     return
 
-def ipconfig(*args):
-    if args:
-        os.system('ipconfig /all')
-        return
-    os.system('ipconfig')
+
+def ipconfig(hou='', *args):
+    os.system('ipconfig %s' % hou)
+
 
 def xh(*args):
     print('202040030804')
     return
 
-def open_ali(x = 0,*args):
+
+def open_ali(x=0, *args):
     print("pypi\n-i https://mirrors.aliyun.com/pypi/simple\n")
     if x:
         web.open("https://developer.aliyun.com/mirror/")
     return
+
 
 dakai = {
 
@@ -178,8 +176,7 @@ dakai = {
     'z': [zhengze, 're,正则查询'],
     'ip': [ipconfig, '查询IP地址，输入a=/all'],
     'hh': [huan_hang, '将文本按特定的字符串进行换行'],
-    'al': [open_ali, '打开阿里云的网站'],
-
+    'al': [open_ali, '打开阿里云的镜像网站'],
 
     'p': [ping, '测试网络'],
     'h': [dayin, 'look 菜单'],
@@ -188,13 +185,14 @@ dakai = {
 
 }
 
-
 dayin()
 
 while 1:
-    xuanzhe = input('输入快捷名,也可以直接输入cmd命令 开头选项+空格自动使用搜索功能(1)\n'
-                    '------------------------------------------------------------------\n>>:').lower()
-
+    xuanzhe_l1 = input('输入快捷名,也可以直接输入cmd命令 开头选项+空格自动使用搜索功能(1)\n'
+                       '------------------------------------------------------------------\n>>:').strip(
+        ' ').lower().split(' ')
+    xuanzhe = xuanzhe_l1[0]
+    xuanzhe_2 = xuanzhe_l1[1]
     if len(xuanzhe) < 1:
         continue
 
@@ -202,25 +200,20 @@ while 1:
         dakai[xuanzhe][0]()
         continue
 
+    # 搜索用的
     if xuanzhe[0] == ' ':
-        search_content = xuanzhe[1:]   # 得到需要搜索文字
+        search_content = xuanzhe[1:]  # 得到需要搜索文字
         yixia(search_content)
         continue
 
-    # if xuanzhe[0] in dakai and xuanzhe[1] == ' ':          # 第一个是参数，而且第二个也必须是空格才可以执行功能
-    all_text = xuanzhe.split(' ', 1)
-    if all_text[0] in dakai:
-        head1 = all_text[0]
-        body1 = all_text[1]
+    # all_text = xuanzhe.split(' ', 1)
+    if xuanzhe in dakai:
+        head1 = xuanzhe
+        body1 = xuanzhe_2
         print('head1:', head1, '||\tbody1:', body1)
-        # xuanzhe0 = xuanzhe[0]
-        # xuanzhe1 = xuanzhe[2:]
-        # print(xuanzhe1)
-        # dakai[xuanzhe0][0](xuanzhe1)    # TODO 这里传个参数进去
-        dakai[head1][0](body1)    # TODO 这里传个参数进去
+        dakai[head1][0](body1)  # TODO 这里传个参数进去
 
         continue
-
 
     if xuanzhe not in dakai:
         # print('输入错误，重新输入')
@@ -228,4 +221,3 @@ while 1:
         continue
     # eval(dakai[xuanzhe][0])
     # dakai[xuanzhe1]
-
