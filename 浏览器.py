@@ -50,11 +50,13 @@ now_time = time.strftime('%m-%d %X')
 
 
 PATH = os.path.abspath(__file__)
-ip_addr_1 = socket.gethostbyname_ex('')[-1]
+ip_addr_1 = socket.gethostbyname_ex('')
 
 print('-------------------------------------------------')
 print(PATH)
-print(f'    当前时间     {now_time}       星期{d1 + 1}    {ip_addr_1}')
+print(f'    当前时间     {now_time}       星期{d1 + 1}')
+print(f'    主机名_ip地址     {ip_addr_1[0]}{ip_addr_1[-1]}       ')
+print(f'   周围主机     {ip_addr_1[1]}       ')
 print('-------------------------------------------------')
 
 def dayin(*args):
