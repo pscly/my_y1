@@ -1,2 +1,6 @@
 .idea/
 .history/
+.history/
+*.exe
+
+*.pyc
