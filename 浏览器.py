@@ -52,6 +52,7 @@ now_time = time.strftime('%m-%d %X')
         1:(11点25分) 添加了打开工作中查询任务的功能
     2021年8月1日
         1:(18点47分) 添加了一键打开工作目录
+        2:(21点17分) 添加了一键打开学习目录，添加了扩展性，*添加了配置文件*
 '''
 
 
@@ -61,9 +62,9 @@ def dayin(*args):
         print(i, ' \t'.expandtabs(6), dakai[i][1])
 
 
-config = func_2.load_config()
+config = func_2.load_config()['COMMON']
 
-
+# 如果有参数，就放在[]的索引2位置
 dakai = {
 
     '1': [yixia, '百度&谷歌一下'],
@@ -77,7 +78,8 @@ dakai = {
     'hh': [huan_hang, '将文本按特定的字符串进行换行'],
     'al': [open_ali, '打开阿里云的镜像网站'],
     'w1': [w1, '打开任务查询'],
-    'wd': [wd, '打开工作的目录'],
+    'wd': [wd, '打开工作的目录', config['work_dir']],
+    'ed': [wd, '打开学习的目录', config['edu_dir']],
 
     'p': [ping, '测试网络'],
     'h': [dayin, 'look 菜单'],
@@ -107,7 +109,12 @@ while 1:
         continue
 
     if xuanzhe in dakai:
-        dakai[xuanzhe][0]()
+        if len(dakai[xuanzhe]) > 2:
+            # 代表这个是有参数的
+            dakai[xuanzhe][0](dakai[xuanzhe][2])
+
+        else:
+            [xuanzhe][0]()
         continue
 
     if xuanzhe[0] == ' ':

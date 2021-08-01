@@ -122,4 +122,8 @@ def w1():
     # url = r'http://20.30.1.119:7001/'
     web.open(url + r"issues?utf8=%E2%9C%93&set_filter=1&sort=priority%3Adesc%2Cupdated_on%3Adesc&f%5B%5D=status_id&op%5Bstatus_id%5D=%21&v%5Bstatus_id%5D%5B%5D=3&f%5B%5D=assigned_to_id&op%5Bassigned_to_id%5D=%3D&v%5Bassigned_to_id%5D%5B%5D=41&f%5B%5D=done_ratio&op%5Bdone_ratio%5D=%3C%3D&v%5Bdone_ratio%5D%5B%5D=90&f%5B%5D=&c%5B%5D=project&c%5B%5D=fixed_version&c%5B%5D=parent&c%5B%5D=tracker&c%5B%5D=status&c%5B%5D=priority&c%5B%5D=subject&c%5B%5D=author&c%5B%5D=assigned_to&c%5B%5D=start_date&c%5B%5D=due_date&c%5B%5D=done_ratio&group_by=&t%5B%5D=")
     return
+
+def wd(path):
+    os.system(f'explorer {path}')
+
     

@@ -1,6 +1,7 @@
 COMMON: &common
   # 配置
   work_dir: "F:\\work"
+  edu_dir: "F:\\now2"
 
 
 CX1: &cx1
