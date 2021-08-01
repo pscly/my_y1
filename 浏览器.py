@@ -55,19 +55,13 @@ now_time = time.strftime('%m-%d %X')
 '''
 
 
-PATH = os.path.abspath(__file__)
-ip_addr_1 = socket.gethostbyname_ex('')
-
-print('-------------------------------------------------')
-print(PATH)
-print(f'    当前时间     {now_time}       星期{d1 + 1}')
-print(f'    主机名_ip地址     {ip_addr_1[0]}{ip_addr_1[-1]}       ')
-print(f'   周围主机     {ip_addr_1[1]}       ')
-print('-------------------------------------------------')
 
 def dayin(*args):
     for i in dakai:
         print(i, ' \t'.expandtabs(6), dakai[i][1])
+
+
+config = func_2.load_config()
 
 
 dakai = {
@@ -83,6 +77,7 @@ dakai = {
     'hh': [huan_hang, '将文本按特定的字符串进行换行'],
     'al': [open_ali, '打开阿里云的镜像网站'],
     'w1': [w1, '打开任务查询'],
+    'wd': [wd, '打开工作的目录'],
 
     'p': [ping, '测试网络'],
     'h': [dayin, 'look 菜单'],
@@ -90,6 +85,17 @@ dakai = {
     'xh': [xh, '查看我的学号，'],
 
 }
+
+
+PATH = os.path.abspath(__file__)
+ip_addr_1 = socket.gethostbyname_ex('')
+
+print('-------------------------------------------------')
+print(PATH)
+print(f'    当前时间     {now_time}       星期{d1 + 1}')
+print(f'    主机名_ip地址     {ip_addr_1[0]}{ip_addr_1[-1]}       ')
+print(f'   周围主机     {ip_addr_1[1]}       ')
+print('-------------------------------------------------')
 
 dayin()
 

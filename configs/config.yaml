@@ -1,0 +1,9 @@
+COMMON: &common
+  # 配置
+  work_dir: "F:\\work"
+
+
+CX1: &cx1
+  # 配置继承common
+  << : *common
+  name: "cx1"
