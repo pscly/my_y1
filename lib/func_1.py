@@ -127,7 +127,8 @@ def w1():
 
 def is1():
     url = file_config.get('work_url')
-    ...
+
+    web.open(url+r'issues/891')
 
 def wd(path):
     os.system(f'explorer {path}')
