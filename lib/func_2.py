@@ -7,6 +7,8 @@ import shutil
 import yaml
 import os
 import time
+import requests
+from pathlib import Path
 
 def copy1():
     file1 = input('请输入是第**天():')
@@ -15,11 +17,12 @@ def copy1():
 
 def load_config():
     """从yaml中读取配置"""
-    yaml_file = r'./configs/config.yaml'
+    
+    yaml_file = Path.cwd() / 'configs' / 'config.yaml'
     # 判断文件配置文件是否存在
-    if not os.path.exists(yaml_file):
-        print('配置文件不存在，或者是启动方式有问题，没有获取到正确的配置文件路径')
-        time.sleep(10)
+    if not Path.is_file(yaml_file):
+        print('配置文件不存在，或者是启动方式有问题，没有获取到正确的配置文件路径,现在使用我的网络版配置文件(部分功能可能会出现问题)')
+        return yaml.safe_load(requests.get(r'https://gitee.com/pscly/my_y1/raw/master/configs/config.yaml').text)
     with open(yaml_file, 'r', encoding='utf-8') as f:
         return yaml.safe_load(f)
     return {}
