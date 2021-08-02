@@ -17,6 +17,7 @@ import socket
 from gong_neng.zaxiang import *
 from lib.func_1 import *
 from lib import func_2
+from rich import print
 
 d = datetime.datetime.now()
 d1 = d.weekday()
@@ -83,7 +84,7 @@ dakai = {
     'is': [is1, '打开任务查询'],
     'wd': [wd, '打开工作的目录', config['work_dir']],
     'ed': [wd, '打开学习的目录', config['edu_dir']],
-    'mo': [open_web, '打开mooc', config['mooc_url']],
+    'mo': [open_web, '打开mooc', 'mooc_url'],
 
     'p': [ping, '测试网络'],
     'h': [dayin, 'look 菜单'],
