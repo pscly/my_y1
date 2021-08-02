@@ -48,6 +48,7 @@ now_time = time.strftime('%m-%d %X')
         1:(08点51分) 精简化
     2021年2月10日
         1:(23点27分) 添加了ip地址
+<<<<<<< HEAD
     2021年7月27日
         1:(11点25分) 添加了打开工作中查询任务的功能
     2021年8月1日
@@ -59,37 +60,8 @@ now_time = time.strftime('%m-%d %X')
 
 
 
-def dayin(*args):
-    for i in dakai:
-        print(i, ' \t'.expandtabs(6), dakai[i][1])
-
-
-config = func_2.load_config()['COMMON']
-
-# 如果有参数，就放在[]的索引2位置
-dakai = {
-
-    '1': [yixia, '百度&谷歌一下'],
-    '2': [zhidao, '百度知道/维基百科'],
-    '3': [zhihu, '知乎'],
-    '4': [shopping, '购物搜索'],
-    '12': [hebin, '1和2同时使用'],
-    'b': [baidu, '单用百度搜索'],
-    'z': [zhengze, 're,正则查询'],
-    'ip': [ipconfig, '查询IP地址，输入a=/all'],
-    'hh': [huan_hang, '将文本按特定的字符串进行换行'],
-    'al': [open_ali, '打开阿里云的镜像网站'],
-    'w1': [w1, '打开任务查询'],
-    'wd': [wd, '打开工作的目录', config['work_dir']],
-    'ed': [wd, '打开学习的目录', config['edu_dir']],
-    'mo': [open_web, '打开mooc', config['mooc_url']],
-
-    'p': [ping, '测试网络'],
-    'h': [dayin, 'look 菜单'],
-    'm': [mstsc, '使用windows远程连接，'],
-    'xh': [xh, '查看我的学号，'],
-
-}
+=======
+'''
 
 
 PATH = os.path.abspath(__file__)
@@ -102,6 +74,59 @@ print(f'    主机名_ip地址     {ip_addr_1[0]}{ip_addr_1[-1]}       ')
 print(f'   周围主机     {ip_addr_1[1]}       ')
 print('-------------------------------------------------')
 
+>>>>>>> origin/master
+def dayin(*args):
+    for i in dakai:
+        print(i, ' \t'.expandtabs(6), dakai[i][1])
+
+
+<<<<<<< HEAD
+config = func_2.load_config()['COMMON']
+
+# 如果有参数，就放在[]的索引2位置
+=======
+>>>>>>> origin/master
+dakai = {
+
+    '1': [yixia, '百度&谷歌一下'],
+    '2': [zhidao, '百度知道/维基百科'],
+    '3': [zhihu, '知乎'],
+    '4': [shopping, '购物搜索'],
+    '12': [hebin, '1和2同时使用'],
+    'b': [baidu, '单用百度搜索'],
+    'z': [zhengze, 're,正则查询'],
+    'ip': [ipconfig, '查询IP地址，输入a=/all'],
+    'hh': [huan_hang, '将文本按特定的字符串进行换行'],
+    'al': [open_ali, '打开阿里云的镜像网站'],
+<<<<<<< HEAD
+    'w1': [w1, '打开任务查询'],
+    'wd': [wd, '打开工作的目录', config['work_dir']],
+    'ed': [wd, '打开学习的目录', config['edu_dir']],
+    'mo': [open_web, '打开mooc', config['mooc_url']],
+=======
+>>>>>>> origin/master
+
+    'p': [ping, '测试网络'],
+    'h': [dayin, 'look 菜单'],
+    'm': [mstsc, '使用windows远程连接，'],
+    'xh': [xh, '查看我的学号，'],
+
+}
+
+<<<<<<< HEAD
+
+PATH = os.path.abspath(__file__)
+ip_addr_1 = socket.gethostbyname_ex('')
+
+print('-------------------------------------------------')
+print(PATH)
+print(f'    当前时间     {now_time}       星期{d1 + 1}')
+print(f'    主机名_ip地址     {ip_addr_1[0]}{ip_addr_1[-1]}       ')
+print(f'   周围主机     {ip_addr_1[1]}       ')
+print('-------------------------------------------------')
+
+=======
+>>>>>>> origin/master
 dayin()
 
 while 1:
@@ -112,12 +137,16 @@ while 1:
         continue
 
     if xuanzhe in dakai:
+<<<<<<< HEAD
         if len(dakai[xuanzhe]) > 2:
             # 代表这个是有参数的
             dakai[xuanzhe][0](dakai[xuanzhe][2])
 
         else:
             dakai[xuanzhe][0]()
+=======
+        dakai[xuanzhe][0]()
+>>>>>>> origin/master
         continue
 
     if xuanzhe[0] == ' ':

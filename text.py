@@ -29,3 +29,4 @@ x1 = get_yaml_data('./configs/config.yaml')
 config = x1['COMMON']
 
 print(x1)
+
