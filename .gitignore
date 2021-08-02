@@ -1,6 +1,7 @@
 .idea/
 .history/
 .history/
+.vscode/
 *.exe
 
 *.pyc
