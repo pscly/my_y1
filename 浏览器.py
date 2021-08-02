@@ -19,10 +19,16 @@ from lib.func_1 import *
 from lib import func_2
 from rich import print
 
+from rich.console import Console
+from rich.table import Column, Table
+from rich.columns import Columns
+
+
 d = datetime.datetime.now()
 d1 = d.weekday()
 
-now_time = time.strftime('%m-%d %X')
+now_time = time.strftime('%y-%m-%d %X')
+
 
 '''
 # 更新日志:
@@ -59,13 +65,27 @@ now_time = time.strftime('%m-%d %X')
 '''
 
 
+console = Console()
 
-def dayin(*args):
+def dayin(start_color='#f52443', end_color='#0bc9d4'):
+    """
+    start_color: #f52443, red
+    end_color: #0bc9d4, red
+    """
+
+    # for i in dakai:
+    #     print(i, ' \t'.expandtabs(6), dakai[i][1])
+    table = Table(show_header=True, header_style="bold #ffff24")
+    table.add_column("快捷字", width=6, justify='center')
+    table.add_column("功能说明", justify='center')
+
     for i in dakai:
-        print(i, ' \t'.expandtabs(6), dakai[i][1])
-
+        table.add_row(f'[{start_color}]{i}[/{start_color}]', f'[{end_color}]{dakai[i][1]}[/{end_color}]')
+    console.print(table)
 
 config = func_2.load_config()['COMMON']
+
+
 
 # 如果有参数，就放在[]的索引2位置
 dakai = {
