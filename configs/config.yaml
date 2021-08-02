@@ -2,6 +2,7 @@ COMMON: &common
   # 配置
   work_dir: "F:\\work"
   edu_dir: "F:\\now2"
+  mooc_url: "https://www.icourse163.org/home.htm?userId=1031814224"
 
 
 CX1: &cx1

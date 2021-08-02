@@ -126,4 +126,8 @@ def w1():
 def wd(path):
     os.system(f'explorer {path}')
 
+def open_web(url):
+    """通过url打开浏览器访问"""
+    web.open(url)
+    return
     

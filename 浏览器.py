@@ -53,6 +53,8 @@ now_time = time.strftime('%m-%d %X')
     2021年8月1日
         1:(18点47分) 添加了一键打开工作目录
         2:(21点17分) 添加了一键打开学习目录，添加了扩展性，*添加了配置文件*
+    2021年8月2日
+        1:(10点45分) 打算添加打开mooc
 '''
 
 
@@ -80,6 +82,7 @@ dakai = {
     'w1': [w1, '打开任务查询'],
     'wd': [wd, '打开工作的目录', config['work_dir']],
     'ed': [wd, '打开学习的目录', config['edu_dir']],
+    'mo': [open_web, '打开mooc', config['mooc_url']],
 
     'p': [ping, '测试网络'],
     'h': [dayin, 'look 菜单'],
