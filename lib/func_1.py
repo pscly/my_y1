@@ -132,8 +132,8 @@ def is1():
 def wd(path):
     os.system(f'explorer {path}')
 
-def open_web(url):
+def open_web(config_url):
     """通过url打开浏览器访问"""
-    web.open(url)
+    web.open(file_config.get(config_url))
     return
     
