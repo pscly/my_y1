@@ -80,6 +80,7 @@ dakai = {
     'hh': [huan_hang, '将文本按特定的字符串进行换行'],
     'al': [open_ali, '打开阿里云的镜像网站'],
     'w1': [w1, '打开任务查询'],
+    'is': [is1, '打开任务查询'],
     'wd': [wd, '打开工作的目录', config['work_dir']],
     'ed': [wd, '打开学习的目录', config['edu_dir']],
     'mo': [open_web, '打开mooc', config['mooc_url']],

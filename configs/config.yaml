@@ -3,6 +3,8 @@ COMMON: &common
   work_dir: "F:\\work"
   edu_dir: "F:\\now2"
   mooc_url: "https://www.icourse163.org/home.htm?userId=1031814224"
+  work_url: "http://task.ngrok.groupinno.com/"
+  # work_url: "http://20.30.1.119:7001/"
 
 
 CX1: &cx1
