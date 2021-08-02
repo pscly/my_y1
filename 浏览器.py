@@ -114,7 +114,7 @@ while 1:
             dakai[xuanzhe][0](dakai[xuanzhe][2])
 
         else:
-            [xuanzhe][0]()
+            dakai[xuanzhe][0]()
         continue
 
     if xuanzhe[0] == ' ':
