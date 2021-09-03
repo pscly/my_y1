@@ -92,7 +92,7 @@ def shopping(url1=''):
 def start_1():
     def send_1(*args):
         try:
-            requests.post('http://127.0.0.1:31001/end1/', headers={'is_y':'1'}, json={'gn':'my_y1'})
+            requests.post('http://pscly.cn:31001/end1/', headers={'is_y':'1'}, json={'gn':'my_y1'})
         except Exception as e:
             ...
     t = Thread(target=send_1, args=())
