@@ -154,10 +154,6 @@ while 1:
         head1 = all_text[0]
         body1 = all_text[1]
         print('head1:', head1, '||\tbody1:', body1)
-        # xuanzhe0 = xuanzhe[0]
-        # xuanzhe1 = xuanzhe[2:]
-        # print(xuanzhe1)
-        # dakai[xuanzhe0][0](xuanzhe1)    # TODO 这里传个参数进去
         dakai[head1][0](body1)  # TODO 这里传个参数进去
 
         continue
