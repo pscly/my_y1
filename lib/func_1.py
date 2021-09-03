@@ -10,7 +10,7 @@ import time
 import datetime
 from lib.func_2 import load_config
 
-file_config = load_config()['COMMON']
+file_config = load_config()
 
 def baidu(url1=''):
     if url1 == '':  # 判断有没有传入搜索的东西
@@ -130,7 +130,6 @@ def is1(iss_num=891):
     iss_num: 对应的iss号码
     """
     url = file_config.get('work_url')
-
     web.open(url+r'issues/%s' % iss_num)
 
 def wd(path):
