@@ -1,6 +1,6 @@
 # coding:utf-8
 # 浏览器
-# 作者：Pscly 
+# 作者：Pscly
 # 联系: qq:550191537   wechat: ps1cly
 # 创建：2019年7月10日，18:40:05
 # 用意：快速执行我想要实现的功能(后期打算加上更多功能(爬虫，数据分析, 不过可以写到别的文件，不过可以使用连接的方式让各个软件连接起来))
@@ -18,6 +18,7 @@ from gong_neng.zaxiang import *
 from lib.func_1 import *
 from lib import func_2
 from rich import print
+from se import dakai2
 
 from rich.console import Console
 from rich.table import Column, Table
@@ -68,6 +69,7 @@ now_time = time.strftime('%y-%m-%d %X')
 
 console = Console()
 
+
 def dayin(start_color='#f52443', end_color='#0bc9d4'):
     """
     start_color: #f52443, red
@@ -81,11 +83,12 @@ def dayin(start_color='#f52443', end_color='#0bc9d4'):
     table.add_column("功能说明", justify='center')
 
     for i in dakai:
-        table.add_row(f'[{start_color}]{i}[/{start_color}]', f'[{end_color}]{dakai[i][1]}[/{end_color}]')
+        table.add_row(f'[{start_color}]{i}[/{start_color}]',
+                      f'[{end_color}]{dakai[i][1]}[/{end_color}]')
     console.print(table)
 
-config = func_2.load_config()['COMMON']
 
+config = func_2.load_config()['COMMON']
 
 
 # 如果有参数，就放在[]的索引2位置
@@ -105,7 +108,6 @@ dakai = {
     'is': [is1, '打开任务查询'],
     'wd': [wd, '打开工作的目录', config['work_dir']],
     'ed': [wd, '打开学习的目录', config['edu_dir']],
-    'mo': [open_web, '打开mooc', 'mooc_url'],
 
     'p': [ping, '测试网络'],
     'h': [dayin, 'look 菜单'],
@@ -114,6 +116,7 @@ dakai = {
 
 }
 
+dakai.update(dakai2)
 
 PATH = os.path.abspath(__file__)
 ip_addr_1 = socket.gethostbyname_ex('')
@@ -154,7 +157,11 @@ while 1:
         head1 = all_text[0]
         body1 = all_text[1]
         print('head1:', head1, '||\tbody1:', body1)
-        dakai[head1][0](body1)  # TODO 这里传个参数进去
+        if len(dakai[head1]) > 2:
+            # 自己有一个参数的情况
+            dakai[head1][0](dakai[head1][2], body1)
+        else:
+            dakai[head1][0](body1)
 
         continue
 

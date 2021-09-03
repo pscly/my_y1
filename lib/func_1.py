@@ -138,6 +138,30 @@ def wd(path):
 
 def open_web(config_url):
     """通过url打开浏览器访问"""
-    web.open(file_config.get(config_url))
+    if '.' in config_url:
+        # 代表这是直接的url 而不是配置文件格式
+        url1 = config_url
+    else:
+        url1 = file_config.get(config_url)
+    web.open(url1)
     return
     
+def open_web2(config_url, url2=''):
+    """通过url打开浏览器访问, 附加参数"""
+
+    if '.' in config_url:
+        # 代表这是直接的url 而不是配置文件格式
+        url1 = config_url
+    else:
+        url1 = file_config.get(config_url)
+        
+    if url2:
+        web.open(url1.format(url2))
+    else:
+        if url2 == '':
+            url2 = input('输入查询>>:')
+        if url2 == '':
+            return
+        elif url2.upper() == 'q':
+            return
+        web.open(url1.format(url2))
