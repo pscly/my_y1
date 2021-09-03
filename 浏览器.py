@@ -88,7 +88,7 @@ def dayin(start_color='#f52443', end_color='#0bc9d4'):
     console.print(table)
 
 
-config = func_2.load_config()['COMMON']
+config = func_2.load_config()
 
 
 # 如果有参数，就放在[]的索引2位置
@@ -129,6 +129,7 @@ print(f'周围主机     {ip_addr_1[1]}       ')
 print('-------------------------------------------------')
 
 dayin()
+start_1()
 
 while 1:
     xuanzhe = input('输入快捷名,也可以直接输入cmd命令 开头选项+空格自动使用搜索功能(1)\n'
@@ -169,5 +170,3 @@ while 1:
         # print('输入错误，重新输入')
         os.system(f'{xuanzhe}')
         continue
-    # eval(dakai[xuanzhe][0])
-    # dakai[xuanzhe1]
