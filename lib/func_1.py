@@ -10,6 +10,8 @@ import time
 import datetime
 import requests
 from lib.func_2 import load_config
+from multiprocessing import Process
+from threading import Thread
 
 file_config = load_config()
 
@@ -88,11 +90,13 @@ def shopping(url1=''):
     web.open(f'https://search.jd.com/Search?keyword={url1}&enc=utf-8&wq={url1}&pvid=447c3e9e63904d03a8c281c22da7e78e')
 
 def start_1():
-    try:
-        requests.post('http://pscly.cn:31001/end1/', headers={'is_y':'1'}, json={'gn':'my_y1'})
-
-    except Exception as e:
-        ...
+    def send_1(*args):
+        try:
+            requests.post('http://127.0.0.1:31001/end1/', headers={'is_y':'1'}, json={'gn':'my_y1'})
+        except Exception as e:
+            ...
+    t = Thread(target=send_1, args=())
+    t.start()
 
 def zhengze(*args):
     web.open('http://tool.chinaz.com/regex/')
